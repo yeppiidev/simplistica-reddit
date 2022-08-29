@@ -1,0 +1,12 @@
+#root {
+  padding: 0;
+  margin: 0;
+}
+
+.heading {
+  font-size: 3em !important;
+}
+
+.container {
+  padding: 1em;
+}
