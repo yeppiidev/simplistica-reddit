@@ -1,0 +1,15 @@
+{
+    "short_name": "Simplistica",
+    "name": "Simplistica",
+    "icons": [
+        {
+            "src": "src/assets/react.svg",
+            "sizes": "192X192 144X144 64x64 32x32 24x24 16x16",
+            "type": "image/svg"
+        }
+    ],
+    "start_url": "index.html",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+}
