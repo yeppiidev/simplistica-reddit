@@ -10,22 +10,21 @@ on:
     branches: [ "main" ]
 
 jobs:
-  pages:
-    stage: deploy
-    cache:
-      key:
-        files:
-          - package-lock.json
-        prefix: npm
-      paths:
-        - node_modules/
-    script:
-      - npm install
-      - npm run build
-      - cp -a dist/. public/
-    artifacts:
-      paths:
-        - public
-    rules:
-      - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: chmod +x ./
+    - run: ./deploy.sh
