@@ -1,6 +1,6 @@
 import * as React from 'react'
 import reactLogo from './assets/react.svg'
-import './App.css'
+import './Styles/App.css'
 import ons from 'onsenui';
 import * as Ons from 'react-onsenui';
 
