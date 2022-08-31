@@ -1,77 +1,13 @@
 import * as React from 'react'
-import reactLogo from './assets/react.svg'
-import './styles/App.css'
-import ons from 'onsenui';
+import ons from 'onsenui/esm';
 import * as Ons from 'react-onsenui';
 
 import 'onsenui/css/onsenui.css';
-import 'onsenui/css/onsen-css-components.css';
+import 'onsenui/css/onsen-css-components.min.css';
 
-let posts = [];
+import './styles/App.css'
 
-const PostCard = (props) => {
-  return (
-    <Ons.Card>
-      <img src={props.img_src} style={{ width: '100%' }} />
-      <div className="title right">{props.title}</div>
-      <div className="content">
-        <Ons.Button><Ons.Icon icon="ion-ios-thumbs-up"></Ons.Icon>{props.ups}</Ons.Button>
-        <Ons.Button><Ons.Icon icon="ion-ios-share"></Ons.Icon></Ons.Button>
-      </div>
-    </Ons.Card>
-  )
-};
-
-const HomePage = (props) => {
-  const [error, setError] = React.useState(null);
-  const [isLoaded, setIsLoaded] = React.useState(false);
-  const [items, setItems] = React.useState([]);
-
-  React.useEffect(() => {
-    fetch("https://api.reddit.com/r/all/top.json?limit=5")
-      .then(res => res.json())
-      .then(
-        (json) => {
-          setIsLoaded(true);
-          setItems(json.data.children);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
-  }, []);
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
-    return (
-      <Ons.Page>
-        <Ons.ProgressCircular indeterminate="true" />
-      </Ons.Page>
-    );
-  } else {
-    return (
-      <Ons.Page>
-        <section className="container">
-          <h1 className="heading">
-            <b>Top posts</b>
-          </h1>
-          {
-            items.map(post =>
-              <PostCard
-                key={post.data.name}
-                title={post.data.title}
-                img_src={post.data.url}
-                ups={post.data.ups}
-              />
-            )
-          }
-        </section>
-      </Ons.Page>
-    );
-  }
-};
+import HomePage from './Pages/Home';
 
 const SearchPage = (props) => {
   return (
@@ -92,7 +28,6 @@ class AppComponent extends React.Component {
     this.state = {
       index: 0
     }
-    this.renderToolbar = this.renderToolbar.bind(this);
   }
 
   handleClick() {
