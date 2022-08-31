@@ -7,6 +7,81 @@
   font-size: 3em !important;
 }
 
+.lh-1 {
+  line-height: 1em;
+}
+
+.lh-09 {
+  line-height: 0.9em;
+}
+
 .container {
   padding: 1em;
+  padding-bottom: 0;
+}
+
+.margin-right {
+  margin-right: 0.2em;
+}
+
+.btn-label {
+  margin-left: 0.3em;
+  vertical-align: middle;
+}
+
+.icon {
+  transform: translateY(-0.12em) translateX(-0.005em);
+}
+
+.header-subreddit-label {
+  color: green;
+}
+
+.unknown-post-type-link {
+  padding-bottom: 0.5em;
+}
+
+a:hover {
+  background-color: rgba(0, 81, 255, 0.176);
+}
+
+.video-post-indicator {
+  font-size: 1.1em;
+  margin-top: -9pt;
+  margin-bottom: 0.5em;
+}
+
+.video-post-indicator-link {
+  color: blue;
+}
+
+.upvote-btn {
+  background-color: green;
+}
+
+.upvote-btn:active {
+  background-color: #008000FF;
+}
+
+.open-external {
+  background-color: grey;
+}
+
+.open-external:active {
+  background-color: #808080;
+}
+
+.post-subheading {
+  margin-top: -8pt;
+  margin-left: 0.5pt;
+}
+
+a:visited {
+  color: blue;
+}
+
+.container-center {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
 }

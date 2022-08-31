@@ -1,10 +1,10 @@
 import * as React from 'react'
-import ons from 'onsenui/esm';
+import ons from 'onsenui';
 import * as Ons from 'react-onsenui';
 
 import PostCard from "../Components/PostCard"
 
-export default function HomePage(props) {
+export default function TrendingPage(props) {
     const [state, setState] = React.useState({ index: 0, state: "" });
     const [error, setError] = React.useState(null);
     const [isLoaded, setIsLoaded] = React.useState(false);
@@ -12,7 +12,7 @@ export default function HomePage(props) {
     const [refreshToast, setRefreshToast] = React.useState(false);
 
     React.useEffect(() => {
-        fetch("https://api.reddit.com/r/all/top.json?limit=10")
+        fetch("https://api.reddit.com/r/all/hot.json?limit=10")
             .then(res => res.json())
             .then(
                 (json) => {
@@ -76,7 +76,7 @@ export default function HomePage(props) {
     } else if (!isLoaded) {
         return (
             <Ons.Page>
-                <div className="container container-center center">
+                <div className="center">
                     <Ons.ProgressCircular indeterminate />
                 </div>
             </Ons.Page>
@@ -93,7 +93,7 @@ export default function HomePage(props) {
 
                 <section className="container">
                     <h1 className="heading">
-                        <b>Top 10 on <small className="header-subreddit-label">r/all</small></b>
+                        <b className="lh-1">Trending now on <small className="header-subreddit-label">r/all</small></b>
                     </h1>
                 </section>
 
@@ -107,11 +107,11 @@ export default function HomePage(props) {
                                 ups={post.data.ups}
                                 thumbnail={post.data.thumbnail}
                                 subreddit={post.data.subreddit}
-                                user={post.data.author}
                             />
                         )
                     }
                 </section>
+                
                 <Ons.Toast isOpen={refreshToast}>
                     <div className="message">
                         Refreshing posts...

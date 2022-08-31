@@ -8,6 +8,7 @@ import 'onsenui/css/onsen-css-components.min.css';
 import './Styles/App.css'
 
 import HomePage from './Pages/Home';
+import TrendingPage from './Pages/Trending';
 
 const SearchPage = (props) => {
   return (
@@ -53,7 +54,7 @@ class AppComponent extends React.Component {
         tab: <Ons.Tab label='Search' icon='ion-ios-search' key="search" />
       },
       {
-        content: <HomePage />,
+        content: <TrendingPage />,
         tab: <Ons.Tab label='Trending' icon='ion-ios-flame' key="trending" />
       }
     ];
