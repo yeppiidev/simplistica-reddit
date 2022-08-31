@@ -5,7 +5,7 @@ import * as Ons from 'react-onsenui';
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.min.css';
 
-import './styles/App.css'
+import './Styles/App.css'
 
 import HomePage from './Pages/Home';
 
