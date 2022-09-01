@@ -38,15 +38,21 @@ export default function SearchPage(props) {
     }, [searchValue]);
 
     const search_get_posts = (event) => {
+        // Fix
         let query = event.srcElement.value;
-        let first_arg = query.split(" ")[0].replace("r/", "");
+        let args = query.split(" ");
+        let first_arg = args[0].replace(/(r\/|\s|\n|\t)/ig, "");
+        let params = `?limit=25`;
 
         setSearchValue(query);
 
         if (query.startsWith("r/")) {
-            setSearchURL(`https://api.reddit.com/r/${first_arg}/top.json?limit=10`);
+            if (args.length == 1)
+                setSearchURL(`https://api.reddit.com/r/${first_arg}/new.json?${params}`);
+            else
+                setSearchURL(`https://api.reddit.com/r/${first_arg}/search.json?q=${encodeURI(args.slice(1).join(" "))}&${params}`);
         } else {
-            setSearchURL(`https://api.reddit.com/r/all/search.json?q=${encodeURI(query)}&limit=10`);
+            setSearchURL(`https://api.reddit.com/r/all/search.json?q=${encodeURI(args.join(" "))}&${params}`);
         }
     };
 
