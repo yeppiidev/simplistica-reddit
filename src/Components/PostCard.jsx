@@ -10,6 +10,7 @@ import useLongPress from '../Helpers/LongPress';
 const supported_sites_regex = /(v.redd.it|i.redd.it|imgur.com|giphy.com)/ig;
 
 export default function PostCard(props) {
+    // FIXME: see below in <PostMedia />>
     const [postBackdrop, setPostBackdrop] = React.useState("");
 
     const open_external = (url) => {
@@ -49,32 +50,14 @@ export default function PostCard(props) {
             }, 1500);
 
             return (
-                <div
+                <img src={props.src}
+                    onContextMenu={(e) => e.preventDefault()}
+                    width="100%"
+                    className="zoom-in zindex-top"
                     {...longPress}
-                >
-                    <img src={props.src}
-                        onContextMenu={(e) => e.preventDefault()}
-                        width="100%"
-                        className="zoom-in zindex-top"
 
-                        // WTF fix this
-                        onTouchStart={(e) => {
-                            e.preventDefault();
-                            setPostBackdrop("bg-obstruct")
-                        }}
-                        onTouchEnd={() => setPostBackdrop("")}
-                        onMouseUp={() => setPostBackdrop("")}
-                        onMouseLeave={() => setPostBackdrop("")}
-                        onMouseUpCapture={() => setPostBackdrop("")}
-                        onTouchCancel={() => setPostBackdrop("")}
-                        onBlur={() => setPostBackdrop("")}
-                        onDragEnd={() => setPostBackdrop("")}
-                        onDragExit={() => setPostBackdrop("")}
-                        onDragOver={() => setPostBackdrop("")}
-                        onPointerUp={() => setPostBackdrop("")}
-                    />
-                </div>
-
+                // FIXME: make it so that the post div has a grey overlay when image is being hovered
+                />
             )
         } else {
             return (
