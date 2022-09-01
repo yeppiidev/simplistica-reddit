@@ -92,7 +92,7 @@ export default function HomePage(props) {
                 </Ons.PullHook>
 
                 <section className="container">
-                    <h1 className="heading">
+                    <h1 className="heading lh-1">
                         <b>Top 10 on <small className="header-subreddit-label">r/all</small></b>
                     </h1>
                 </section>

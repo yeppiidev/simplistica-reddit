@@ -107,6 +107,7 @@ export default function TrendingPage(props) {
                                 ups={post.data.ups}
                                 thumbnail={post.data.thumbnail}
                                 subreddit={post.data.subreddit}
+                                user={post.data.author}
                             />
                         )
                     }

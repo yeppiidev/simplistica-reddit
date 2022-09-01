@@ -9,19 +9,7 @@ import './Styles/App.css'
 
 import HomePage from './Pages/Home';
 import TrendingPage from './Pages/Trending';
-
-const SearchPage = (props) => {
-  return (
-    <Ons.Page id="search_page">
-      <section style={{ textAlign: 'center' }}>
-        <p>
-          <Ons.SearchInput style={{ width: "90%", marginLeft: "1em", marginRight: "1em" }} placeholder='Search reddit...' />
-        </p>
-      </section>
-    </Ons.Page>
-  )
-};
-
+import SearchPage from './Pages/Search';
 
 class AppComponent extends React.Component {
   constructor(props) {
